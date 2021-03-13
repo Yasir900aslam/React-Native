@@ -3,8 +3,15 @@ import {Text} from 'react-native-elements'
 import {OPEN_WEATHER_API} from '@env'
 
 const weatherRequest = () => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${OPEN_WEATHER_API}`
+        }
+    }
+
 // Make a request for a user with a given ID
-    axios.get('/user?ID=12345')
+    axios.get('/user?ID=12345',
+               config)
         .then(function (response) {
             // handle success
             console.log(response);
